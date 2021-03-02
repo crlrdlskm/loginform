@@ -1,0 +1,67 @@
+<html>
+<head>
+<link rel="shortcut icon" href="img/faviconlogo.png" type="image/png" sizes="16x16">	
+<link rel="stylesheet" type="text/css" href="22.css">
+<script type="text/javascript">
+var login_attempts=4;
+function check_form()
+{
+ var name=document.getElementById("username").value;
+ var pass=document.getElementById("password").value;
+ if(name=="admin" && pass=="minad")
+ {
+  alert("SuccessFully Logged In");
+  document.getElementById("username").value="";
+  document.getElementById("password").value="";
+ }
+ else
+ {
+  if(login_attempts==0)
+  {
+   alert("LOG IN FAILED!");
+  }
+  else
+  {
+   login_attempts=login_attempts-1;
+   alert("Login Failed! "+login_attempts+" Login Attempts Available");
+   if(login_attempts==0)
+   {
+    document.getElementById("username").disabled=true;
+    document.getElementById("password").disabled=true;
+    document.getElementById("loginbox").disabled=true;
+   }
+  }
+ }
+ 
+ return false;
+}	
+</script>
+<body>
+<div class="logo"> </div>
+<div id="loginbox">
+
+
+<form id="loginbox" method="post" action="" onsubmit="return check_form();">
+ 
+ 
+
+ <p id="login_label">Login Here</p>
+ <p>Username</p>
+ <input type="text" id="username" placeholder="Enter username">
+ <br>
+ <p>Password</p>
+ <input type="password" id="password" placeholder="Enter Password">
+ <br>
+ <input type="submit" value="Login" onclick="window.location.href='#'"/>
+
+ <a href="#"> Forgot your password? </a><br> 
+ <a href="forgot_password.html"> Don't have an account? </a>
+ 
+
+</form>
+
+</div>
+
+
+</body>
+</html>
